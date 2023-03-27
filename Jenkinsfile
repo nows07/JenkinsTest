@@ -1,5 +1,9 @@
 pipeline  {
-	agent { docker { image 'maven:3.6.3' } }
+	agent any
+	environment {
+		dockerHome = tool 'nowsDocker'
+		mavenHome = tool 'nowsMaven'
+	}
 	stages {
     stage('Build') {
 		steps {
